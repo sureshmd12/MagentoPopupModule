@@ -17,10 +17,12 @@
  */
 namespace BelVG\Popup\Controller\Subscriber;
 
+use Laminas\Validator\EmailAddress;
 use Magento\Customer\Api\AccountManagementInterface as CustomerAccountManagement;
 use Magento\Customer\Model\Session;
 use Magento\Customer\Model\Url as CustomerUrl;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Newsletter\Model\SubscriberFactory;
 
@@ -39,6 +41,10 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
      * @var \Magento\Framework\Controller\Result\JsonFactory
      */
     protected $resultJsonFactory;
+    /**
+     * @var ScopeConfigInterface
+     */
+    private $scopeConfig;
 
     /**
      * NewAction constructor.
@@ -49,6 +55,7 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
      * @param CustomerUrl $customerUrl
      * @param CustomerAccountManagement $accountManagement
      * @param \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         Context $context,
@@ -57,7 +64,8 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
         StoreManagerInterface $storeManager,
         CustomerUrl $customerUrl,
         CustomerAccountManagement $accountManagement,
-        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory,
+        ScopeConfigInterface $scopeConfig
     ) {
         $this->accountManagement = $accountManagement;
         parent::__construct(
@@ -68,6 +76,7 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
             $customerUrl
         );
         $this->resultJsonFactory = $jsonFactory;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -93,11 +102,10 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
      */
     protected function validateGuestSubscription()
     {
-        if ($this->_objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')
-                ->getValue(
-                    \Magento\Newsletter\Model\Subscriber::XML_PATH_ALLOW_GUEST_SUBSCRIBE_FLAG,
-                    \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-                ) != 1
+        if ($this->scopeConfig->getValue(
+                \Magento\Newsletter\Model\Subscriber::XML_PATH_ALLOW_GUEST_SUBSCRIBE_FLAG,
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+            ) != 1
             && !$this->_customerSession->isLoggedIn()
         ) {
             return false;
@@ -112,7 +120,8 @@ class NewAction extends \Magento\Newsletter\Controller\Subscriber
     protected function validateEmail()
     {
         $email = $this->getRequest()->getParam('email');
-        if (!\Zend_Validate::is($email, 'EmailAddress')) {
+        $validator = new EmailAddress();
+        if (!$validator->isValid($email)) {
             return false;
         } else {
             return true;

@@ -10,7 +10,17 @@
         }
     ],
     "version": "2.0.9",
-    "require": {},
+    "require": {
+        "php": "~8.2.0||~8.3.0",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-config": "*",
+        "magento/module-store": "*",
+        "magento/module-cms": "*",
+        "magento/module-sales-rule": "*",
+        "magento/module-newsletter": "*",
+        "magento/module-customer": "*"
+    },
     "autoload": {
         "files": [
             "registration.php"

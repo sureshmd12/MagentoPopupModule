@@ -21,19 +21,46 @@ namespace BelVG\Popup\Model\Config\Source;
  * Class Templates
  * @package BelVG\Popup\Model\Config\Source
  */
+use Magento\Framework\Module\Dir;
+
 class Templates implements \Magento\Framework\Option\ArrayInterface
 {
+    /**
+     * @var \Magento\Framework\Module\Dir\Reader
+     */
+    protected $moduleDirReader;
+
+    /**
+     * Templates constructor.
+     * @param Dir\Reader $moduleDirReader
+     */
+    public function __construct(
+        \Magento\Framework\Module\Dir\Reader $moduleDirReader
+    ) {
+        $this->moduleDirReader = $moduleDirReader;
+    }
+
     /**
      * @return array
      */
     public function toOptionArray()
     {
         $options = [];
-        $templatePath = BP . '/pub/media/promopopup/templates/';
+        $viewDir = $this->moduleDirReader->getModuleDir(
+            Dir::MODULE_VIEW_DIR,
+            'BelVG_Popup'
+        );
+        $templatePath = $viewDir . '/frontend/web/templates/';
+        if (!is_dir($templatePath)) {
+            return [];
+        }
         $files = array_slice(scandir($templatePath), 2);
         $index = [];
         foreach ($files as $file) {
             $fileParts = explode('_',$file);
+            if (count($fileParts) < 3) {
+                continue;
+            }
             $holidayName = ucwords($fileParts[1]);
             $holidayId =  strtolower(str_replace(['_','.html'],[' ',''],$fileParts[1]));
             $typeId = strtolower(str_replace(['_','.html'],[' ',''],$fileParts[2]));

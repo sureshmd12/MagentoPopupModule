@@ -18,7 +18,7 @@
 
 namespace BelVG\Popup\Setup;
 
-use Magento\Framework\Serialize\JsonConverter;
+use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -34,16 +34,16 @@ class InstallData implements InstallDataInterface
     protected  $blockFactory;
 
     /**
-     * @var JsonConverter
+     * @var Json
      */
-    protected $jsonConverter;
+    protected $serializer;
 
     public function __construct(
         \Magento\Cms\Model\BlockFactory $blockFactory,
-        JsonConverter $jsonConverter
+        Json $serializer
     ) {
         $this->blockFactory = $blockFactory;
-        $this->jsonConverter = $jsonConverter;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -63,7 +63,7 @@ class InstallData implements InstallDataInterface
                 'name' => 'BelVG Promo Popup: Coupons 5% OFF',
                 'uses_per_customer' => 0,
                 'is_active' => 1,
-                'conditions_serialized' => $this->jsonConverter->convert([
+                'conditions_serialized' => $this->serializer->serialize([
                     'type' => 'Magento\SalesRule\Model\Rule\Condition\Combine',
                     'attribute' => null,
                     'operator' => null,
@@ -71,7 +71,7 @@ class InstallData implements InstallDataInterface
                     'is_value_processed' => null,
                     'aggregator' => 'all',
                 ]),
-                'actions_serialized' => $this->jsonConverter->convert([
+                'actions_serialized' => $this->serializer->serialize([
                     'type' => 'Magento\SalesRule\Model\Rule\Condition\Product\Combine',
                     'attribute' => null,
                     'operator' => null,
@@ -125,73 +125,6 @@ class InstallData implements InstallDataInterface
         $setup->getConnection()
             ->insertOnDuplicate($setup->getTable('core_config_data'), $data, ['value']);
 
-        $this->installFileData();
-
         $setup->endSetup();
-    }
-
-    /**
-     * @param array $data
-     * @return \Magento\Cms\Model\Block
-     */
-    protected function saveCmsBlock($data)
-    {
-        $cmsBlock = $this->blockFactory->create();
-        $cmsBlock->getResource()->load($cmsBlock, $data['identifier']);
-        if (!$cmsBlock->getData()) {
-            $cmsBlock->setData($data);
-        } else {
-            $cmsBlock->addData($data);
-        }
-        $cmsBlock->setStores([\Magento\Store\Model\Store::DEFAULT_STORE_ID]);
-        $cmsBlock->setIsActive(1);
-        $cmsBlock->save();
-        return $cmsBlock;
-    }
-
-
-    protected function installFileData() {
-        $mediaPath = BP . '/pub/media/promopopup/';
-        $dataPath = dirname(__FILE__) . '/Data/promopopup/';
-
-        $folders =  [
-                'css',
-                'images/halloween/popup1',
-                'images/halloween/popup2',
-                'images/halloween/popup3',
-                'images/halloween/popup4',
-                'templates'
-            ];
-
-        $files =  [
-            'css/halloween/styles.css',
-            'images/halloween/popup1/halloween.png',
-            'images/halloween/popup2/halloween.png',
-            'images/halloween/popup3/halloween.png',
-            'images/halloween/popup4/halloween.png',
-            'templates/1-1_halloween_newsletter.html',
-            'templates/1-2_halloween_coupon.html',
-            'templates/1-3_halloween_banner.html',
-            'templates/2-1_halloween_newsletter.html',
-            'templates/2-2_halloween_coupon.html',
-            'templates/2-3_halloween_banner.html',
-            'templates/3-1_halloween_newsletter.html',
-            'templates/3-2_halloween_coupon.html',
-            'templates/3-3_halloween_banner.html',
-            'templates/4-1_halloween_newsletter.html',
-            'templates/5-2_halloween_coupon.html',
-            'templates/6-3_halloween_banner.html',
-        ];
-
-        /*Create Folder*/
-        foreach ($folders as $item) {
-            @\mkdir($mediaPath.$item,0777,true);
-        }
-
-        /*Copy files*/
-        foreach ($files as $item) {
-            @\copy($dataPath.$item, $mediaPath.$item);
-        }
-
     }
 }
