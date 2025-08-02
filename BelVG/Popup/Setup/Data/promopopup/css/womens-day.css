@@ -1,0 +1,82 @@
+/* COMMON */
+
+.belvg-popup {
+    background: #fff;
+}
+    .belvg-popup__title + .belvg-popup__subtitle {
+        margin: -10px 0 20px;
+    }
+    .belvg-popup__subtitle {
+        font-weight: bold;
+    }
+    .belvg-popup__note > em {
+        color: #DD7FA5;
+    }
+    .belvg-popup__note > code {
+        display: inline-block;
+        vertical-align: middle;
+        color: #DD7FA5;
+    }
+    .belvg-popup__input > input {
+        padding: 12px 10px;
+        height: auto;
+        background: #fff;
+        border-color: #f2f2f2;
+    }
+    .belvg-popup__actions > .action {
+        color: #fff;
+        border: none;
+        padding: 15px 10px;
+        background: #DD7FA5;
+    }
+    .belvg-popup__actions > .action:hover,
+    .belvg-popup__actions > .action:focus,
+    .belvg-popup__actions > .action:active {
+        color: #fff;
+        border: none;
+        background: #000;
+    }
+
+@media only screen and (max-width: 1024px) {
+    .belvg-popup__subtitle {
+        font-size: 16px;
+    }
+    .belvg-popup__title,
+    .belvg-popup__subtitle {
+        color: inherit;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .belvg-popup__subtitle {
+        font-size: 32px;
+    }
+}
+
+/* DESIGN 1 */
+
+.belvg-popup__theme1 {
+}
+
+@media only screen and (min-width: 1024px) {
+    .belvg-popup__theme1.belvg-popup__step1 .belvg-popup__content {
+        text-align: left;
+    }
+}
+
+/* DESIGN 2 */
+
+.belvg-popup__theme2 {
+    color: #fff;
+    background: #2E1C35;
+}
+
+/* DESIGN 3 */
+
+.belvg-popup__theme3 {
+}
+
+/* DESIGN 4 */
+
+.belvg-popup__theme4 {
+}

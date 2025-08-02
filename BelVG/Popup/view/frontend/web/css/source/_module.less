@@ -1,0 +1,107 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .modal-popup.custom-promo-popup-modal {
+        .modal-header,
+        .modal-content {
+            padding: 0;
+        }
+
+        .action-close {
+            padding: 0;
+            top: @indent__xs;
+            right: @indent__xs;
+            z-index: 1;
+            border-radius: 0;
+            box-shadow: none;
+
+            &:before {
+                color: @color-black;
+                background: @color-white;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 100%;
+            }
+        }
+
+        .modal-inner-wrap {
+            width: 100%;
+            margin: 0;
+        }
+
+        .modal-footer {
+            padding: @indent__base;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .modal-popup.custom-promo-popup-modal {
+        width: 300px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+        .modal-inner-wrap {
+            height: auto;
+            position: relative;
+            top: 40%;
+        }
+
+        &._show {
+            .modal-inner-wrap {
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: @screen__m) and (max-width: @screen__l)  {
+    .modal-popup.custom-promo-popup-modal {
+        width: 400px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+        .modal-inner-wrap {
+            top: 40%;
+        }
+
+        &._show {
+            .modal-inner-wrap {
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media only screen and (min-width: @screen__l) {
+    .modal-popup.custom-promo-popup-modal.modal-slide {
+        .modal-inner-wrap {
+            width: auto;
+            max-width: 75%;
+            top: 40%;
+            left: 50%;
+            right: auto;
+            -webkit-transform: translate(-50%, -40%);
+            transform: translate(-50%, -40%);
+        }
+
+        .modal-footer {
+            text-align: left;
+        }
+    }
+}

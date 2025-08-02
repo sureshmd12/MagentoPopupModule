@@ -1,0 +1,17 @@
+<!--@subject {{trans "Promo Coupon"}} @-->
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Hello,"}}</p>
+
+<br>
+
+<table class="message-details">
+    <tr>
+        <td><b>{{trans "Coupon"}}:</b></td>
+        <td>{{var data.coupon}}</td>
+    </tr>
+</table>
+
+<p>{{trans "Thanks,<br>%store_name" store_name=$store.getFrontendName()|raw}}</p>
+
+{{template config_path="design/email/footer_template"}}

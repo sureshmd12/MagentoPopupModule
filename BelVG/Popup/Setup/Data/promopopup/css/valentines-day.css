@@ -1,0 +1,87 @@
+/* COMMON */
+
+.belvg-popup {
+    background: #fff;
+}
+    .belvg-popup__subtitle {
+        color: #FF5959;
+        text-align: center;
+    }
+    .belvg-popup__title + .belvg-popup__subtitle {
+        margin: -10px 0 20px;
+    }
+    .belvg-popup__note > em {
+        color: #f89a1c;
+    }
+    .belvg-popup__note > code {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 4px 8px 2px;
+        color: #fff;
+        background: #000;
+    }
+    .belvg-popup__input > input {
+        padding: 12px 10px;
+        height: auto;
+        background: #fff;
+        border-color: #f2f2f2;
+    }
+    .belvg-popup__actions > .action {
+        color: #fff;
+        border: none;
+        padding: 15px 10px;
+        background: linear-gradient(90deg, rgb(255,70,121) 0%, rgb(255,155,148) 100%);
+    }
+    .belvg-popup__actions > .action:hover,
+    .belvg-popup__actions > .action:focus,
+    .belvg-popup__actions > .action:active {
+        color: #fff;
+        border: none;
+        background: rgba(255,70,121,1);
+    }
+
+@media only screen and (max-width: 1024px) {
+    .belvg-popup__subtitle {
+        font-size: 16px;
+    }
+    .belvg-popup__content {
+        color: #fff;
+        background: rgb(255,180,181);
+    }
+    .belvg-popup__title,
+    .belvg-popup__subtitle {
+        color: inherit;
+    }
+    .belvg-popup__actions > .action {
+        background: #000;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .belvg-popup__subtitle {
+        font-size: 22px;
+    }
+    .belvg-popup__note > code {
+        font-size: 18px;
+    }
+}
+
+/* DESIGN 1 */
+
+.belvg-popup__theme1 {
+}
+
+/* DESIGN 2 */
+
+.belvg-popup__theme2 {
+}
+
+/* DESIGN 3 */
+
+.belvg-popup__theme3 {
+}
+
+/* DESIGN 4 */
+
+.belvg-popup__theme4 {
+}

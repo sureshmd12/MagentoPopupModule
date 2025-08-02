@@ -1,0 +1,229 @@
+/* COMMON */
+
+.belvg-popup-halloween {
+    background: #fff;
+}
+    .belvg-popup-halloween__image,
+    .belvg-popup-halloween__content {
+    }
+    .belvg-popup-halloween__image {
+    }
+        .belvg-popup-halloween__image > img {
+            display: block;
+            width: 100%;
+        }
+    .belvg-popup-halloween__content {
+        padding: 10px 20px;
+    }
+        .belvg-popup-halloween__title {
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+        .belvg-popup-halloween__note {
+            margin: 10px 0;
+        }
+            .belvg-popup-halloween__note > em {
+                font-style: normal;
+                font-weight: bold;
+                color: #f89a1c;
+            }
+            .belvg-popup-halloween__note > code {
+                color: #ed7d53;
+                font-weight: bold;
+                letter-spacing: 1px;
+                padding: 0;
+                background: none;
+            }
+        .belvg-popup-halloween__input {
+            margin: 0 0 6px;
+        }
+            .belvg-popup-halloween__input > input {
+                width: 100%;
+                font-size: 12px;
+                background: #f2f2f2;
+                border-color: #f2f2f2;
+            }
+        .belvg-popup-halloween__actions {
+        }
+            .belvg-popup-halloween__actions > .action {
+                width: 100%;
+                text-transform: uppercase;
+                color: #fff;
+                background: #000;
+                border-color: #000;
+            }
+            .belvg-popup-halloween__actions > .action:hover,
+            .belvg-popup-halloween__actions > .action:focus,
+            .belvg-popup-halloween__actions > .action:active {
+                color: #fff;
+                background: #f89a1c;
+                border-color: #f89a1c;
+            }
+.belvg-popup-halloween.belvg-popup-halloween__step1 {
+}
+    .belvg-popup-halloween.belvg-popup-halloween__step1 .belvg-popup-halloween__content {
+        text-align: center;
+    }
+
+/* DESIGN 1 */
+
+.belvg-popup-halloween__theme1 {
+}
+    .belvg-popup-halloween__theme1 .belvg-popup-halloween__image {
+        background: #f7d0c1;
+    }
+    .belvg-popup-halloween__theme1.belvg-popup-halloween__step2 .belvg-popup-halloween__note {
+    }
+        .belvg-popup-halloween__theme1.belvg-popup-halloween__step2 .belvg-popup-halloween__note > em {
+            color: #a0041d;
+        }
+
+/* DESIGN 2 */
+
+.belvg-popup-halloween__theme2 {
+    display: block;
+}
+    .belvg-popup-halloween__theme2 .belvg-popup-halloween__image,
+    .belvg-popup-halloween__theme2 .belvg-popup-halloween__content {
+        display: block;
+    }
+    .belvg-popup-halloween__theme2 .belvg-popup-halloween__content {
+        padding: 20px;
+        text-align: center;
+    }
+.belvg-popup-halloween__theme2.belvg-popup-halloween__step2 {
+    color: #fff;
+    background: #000;
+}
+    .belvg-popup-halloween__theme2.belvg-popup-halloween__step2 .belvg-popup-halloween__image {
+        position: relative;
+    }
+        .belvg-popup-halloween__theme2.belvg-popup-halloween__step2 .belvg-popup-halloween__image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, #000 100%);
+            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, #000 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+        }
+    .belvg-popup-halloween__theme2.belvg-popup-halloween__step2 .belvg-popup-halloween__actions {
+        }
+        .belvg-popup-halloween__theme2.belvg-popup-halloween__step2 .belvg-popup-halloween__actions > .action {
+            background: #f89a1c;
+            border-color: #f89a1c;
+        }
+
+/* DESIGN 3 */
+
+.belvg-popup-halloween__theme3 {
+}
+    .belvg-popup-halloween__theme3 .belvg-popup-halloween__image {
+        background: #220021;
+    }
+
+.belvg-popup-halloween__theme3.belvg-popup-halloween__step2 {
+    color: #fff;
+    background: #220021;
+}
+    .belvg-popup-halloween__theme3.belvg-popup-halloween__step2 .belvg-popup-halloween__actions {
+        }
+        .belvg-popup-halloween__theme3.belvg-popup-halloween__step2 .belvg-popup-halloween__actions > .action {
+            background: #f89a1c;
+            border-color: #f89a1c;
+        }
+
+/* DESIGN 4 */
+
+.belvg-popup-halloween__theme4 {
+}
+    .belvg-popup-halloween__theme4 .belvg-popup-halloween__image {
+        background: #220021;
+    }
+
+.belvg-popup-halloween__theme4.belvg-popup-halloween__step2 {
+    color: #fff;
+    background: #220021;
+}
+    .belvg-popup-halloween__theme4.belvg-popup-halloween__step2 .belvg-popup-halloween__actions {
+        }
+        .belvg-popup-halloween__theme4.belvg-popup-halloween__step2 .belvg-popup-halloween__actions > .action {
+            background: #f89a1c;
+            border-color: #f89a1c;
+        }
+
+/* MOBILE */
+
+@media only screen and (max-width: 480px) {
+    .belvg-popup-halloween {
+        max-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .belvg-popup-halloween {
+        max-width: 400px;
+    }
+    .belvg-popup-halloween__content {
+        }
+        .belvg-popup-halloween__title {
+            font-size: 22px;
+        }
+        .belvg-popup-halloween__note {
+            font-size: 12px;
+        }
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 768px) {
+    .belvg-popup-halloween {
+        display: table;
+    }
+        .belvg-popup-halloween__image,
+        .belvg-popup-halloween__content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .belvg-popup-halloween__title {
+            font-size: 34px;
+        }
+        .belvg-popup-halloween__note {
+            font-size: 16px;
+        }
+
+    /* DESIGN 1 */
+
+    .belvg-popup-halloween__theme1 {
+        width: 825px;
+    }
+        .belvg-popup-halloween__theme1 .belvg-popup-halloween__image {
+            width: 400px;
+        }
+
+    /* DESIGN 2 */
+
+    .belvg-popup-halloween__theme2 {
+        width: 475px;
+    }
+
+    /* DESIGN 3 */
+
+    .belvg-popup-halloween__theme3 {
+        width: 890px;
+    }
+        .belvg-popup-halloween__theme3 .belvg-popup-halloween__image {
+            width: 440px;
+        }
+
+    /* DESIGN 4 */
+
+    .belvg-popup-halloween__theme4 {
+        width: 890px;
+    }
+        .belvg-popup-halloween__theme4 .belvg-popup-halloween__image {
+            width: 420px;
+        }
+}

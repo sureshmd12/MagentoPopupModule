@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+ ********************************************************************
+ * @category   BelVG
+ * @package    BelVG_Popup
+ * @copyright  Copyright (c) BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="belvg" translate="label" sortOrder="200000">
+            <label>BelVG</label>
+        </tab>
+        <section id="promopopup" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Promo Popup</label>
+            <tab>belvg</tab>
+            <resource>BelVG_Popup::config</resource>
+            <group id="settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="modal_id" translate="label" type="text" sortOrder="105" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Form Id</label>
+                    <frontend_class>required-entry</frontend_class>
+                    <validate>required-entry</validate>
+                </field>
+
+                <field id="type" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Mode</label>
+                    <source_model>BelVG\Popup\Model\Config\Source\DisplayType</source_model>
+                </field>
+
+
+                <field id="rule_id" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Cart rule</label>
+                    <source_model>BelVG\Popup\Model\Config\Source\CartRules</source_model>
+                    <comment>Select cart rule to generate coupon codes</comment>
+                    <depends>
+                        <field id="*/*/type">coupon</field>
+                    </depends>
+                </field>
+
+                <field id="area" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Area</label>
+                    <source_model>BelVG\Popup\Model\Config\Source\DisplayArea</source_model>
+                </field>
+
+                <field id="scenario" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Method</label>
+                    <source_model>BelVG\Popup\Model\Config\Source\Scenario</source_model>
+                </field>
+
+                <field id="delay" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delay</label>
+                    <validate>validate-number validate-no-empty</validate>
+                    <comment>Delay before show modal (in second)</comment>
+                    <depends>
+                        <field id="*/*/scenario">delay</field>
+                    </depends>
+                </field>
+
+                <field id="scroll_count" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Scroll count</label>
+                    <validate>validate-number validate-no-empty</validate>
+                    <comment>Scroll count before show modal</comment>
+                    <depends>
+                        <field id="*/*/scenario">scroll</field>
+                    </depends>
+                </field>
+
+                <field id="limit" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Appearance</label>                    
+                    <validate>validate-number validate-no-empty</validate>
+                </field>
+
+                <field id="templates" translate="label comment" sortOrder="150" type="select" showInStore="1" showInDefault="1" >
+                    <label>Templates</label>
+                    <frontend_model>BelVG\Popup\Block\Adminhtml\System\Config\Templates</frontend_model>
+                    <source_model>BelVG\Popup\Model\Config\Source\Templates</source_model>
+                </field>
+
+                <field id="content" translate="label comment" sortOrder="150" type="editor" showInStore="1" showInDefault="1" >
+                    <label>Content</label>
+                    <frontend_model>BelVG\Popup\Block\Adminhtml\System\Config\Wysiwyg</frontend_model>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

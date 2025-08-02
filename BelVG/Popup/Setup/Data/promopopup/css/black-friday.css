@@ -1,0 +1,100 @@
+/* COMMON */
+
+.belvg-popup {
+    background: #fff;
+}
+    .belvg-popup__note > em {
+        color: #f89a1c;
+    }
+    .belvg-popup__note > code {
+        color: #ed7d53;
+    }
+    .belvg-popup__input > input {
+        background: #f2f2f2;
+        border-color: #f2f2f2;
+    }
+    .belvg-popup__actions > .action {
+        color: #fff;
+        background: #000;
+        border-color: #000;
+    }
+    .belvg-popup__actions > .action:hover,
+    .belvg-popup__actions > .action:focus,
+    .belvg-popup__actions > .action:active {
+        color: #fff;
+        background: #f89a1c;
+        border-color: #f89a1c;
+    }
+
+/* DESIGN 1 */
+
+.belvg-popup__theme1 {
+}
+    .belvg-popup__theme1 .belvg-popup__image {
+        background: #f7d0c1;
+    }
+    .belvg-popup__theme1.belvg-popup__step2 .belvg-popup__note {
+    }
+        .belvg-popup__theme1.belvg-popup__step2 .belvg-popup__note > em {
+            color: #a0041d;
+        }
+
+/* DESIGN 2 */
+
+.belvg-popup__theme2 {
+}
+.belvg-popup__theme2.belvg-popup__step2 {
+    color: #fff;
+    background: #000;
+}
+    .belvg-popup__theme2.belvg-popup__step2 .belvg-popup__image:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, #000 100%);
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, #000 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+    }
+    .belvg-popup__theme2.belvg-popup__step2 .belvg-popup__actions > .action {
+        background: #f89a1c;
+        border-color: #f89a1c;
+    }
+
+/* DESIGN 3 */
+
+.belvg-popup__theme3 {
+}
+    .belvg-popup__theme3 .belvg-popup__image {
+        background: #220021;
+    }
+
+.belvg-popup__theme3.belvg-popup__step2 {
+    color: #fff;
+    background: #220021;
+}
+    .belvg-popup__theme3.belvg-popup__step2 .belvg-popup__actions > .action {
+        background: #f89a1c;
+        border-color: #f89a1c;
+    }
+
+/* DESIGN 4 */
+
+.belvg-popup__theme4 {
+}
+    .belvg-popup__theme4 .belvg-popup__image {
+        background: #220021;
+    }
+
+.belvg-popup__theme4.belvg-popup__step2 {
+    color: #fff;
+    background: #220021;
+}
+    .belvg-popup__theme4.belvg-popup__step2 .belvg-popup__actions {
+        }
+        .belvg-popup__theme4.belvg-popup__step2 .belvg-popup__actions > .action {
+            background: #f89a1c;
+            border-color: #f89a1c;
+        }

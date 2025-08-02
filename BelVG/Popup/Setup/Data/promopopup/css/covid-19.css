@@ -1,0 +1,67 @@
+/* COMMON */
+
+.custom-promo-popup-modal {
+}
+    .modal-popup.custom-promo-popup-modal .action-close {
+        margin: 0;
+    }
+
+.belvg-popup__image {
+    padding: 40px;
+}
+
+/* DESIGN 1 */
+
+.belvg-popup__theme1 {
+    color: #000;
+    background-color: #ffca46;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 25%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 100%);
+    background-size: 56.57px 56.57px;
+}
+    .belvg-popup__theme1 .belvg-popup__actions > .action {
+        color: #ffca46;
+        background: #000;
+        border-color: #000;
+    }
+    .belvg-popup__theme1 .belvg-popup__actions > .action:hover,
+    .belvg-popup__theme1 .belvg-popup__actions > .action:focus,
+    .belvg-popup__theme1 .belvg-popup__actions > .action:active {
+        color: #000;
+        background: #ffca46;
+        border-color: #000;
+    }
+
+@media only screen and (min-width: 1024px) {
+    .belvg-popup__theme1 .belvg-popup__image {
+        width: 300px;
+    }
+}
+
+/* DESIGN 2 */
+
+.belvg-popup__theme2 {
+    color: #fff;
+    background-color: #b62e09;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 25%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 100%);
+    background-size: 56.57px 56.57px;
+}
+    .belvg-popup__theme2 .belvg-popup__image {
+        text-align: center;
+    }
+        .belvg-popup__theme2 .belvg-popup__image > img {
+            display: inline-block;
+            vertical-align: top;
+            max-width: 200px;
+        }
+    .belvg-popup__theme2 .belvg-popup__actions > .action {
+        color: #fff;
+        background: #000;
+        border-color: #000;
+    }
+    .belvg-popup__theme2 .belvg-popup__actions > .action:hover,
+    .belvg-popup__theme2 .belvg-popup__actions > .action:focus,
+    .belvg-popup__theme2 .belvg-popup__actions > .action:active {
+        color: #000;
+        background: #b62e09;
+        border-color: #000;
+    }

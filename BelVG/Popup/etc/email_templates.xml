@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="promopopup_coupon_email_template"
+              label="Promo Popup Coupon"
+              file="coupon_email_template.html"
+              type="html"
+              module="BelVG_Popup"
+              area="frontend"/>
+</config>
